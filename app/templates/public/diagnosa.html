@@ -1,0 +1,198 @@
+{% extends 'public/templates/public_base.html' %}
+
+{% block title %}
+diagnosa
+{% endblock %}
+
+{% block content %}
+<section class="hero-wrap js-fullheight"
+    style="background-image: url('{{ url_for('static', filename='images/liver1.jpeg') }}'); opacity: 0.7;"
+    data-section="home" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+            data-scrollax-parent="true">
+            <div class="col-md-6 pt-5 ftco-animate">
+                <div class="mt-5">
+                    <h1 class="mb-4">DIAGNOSA TAHAPAN<br>PENYAKIT HATI</h1>
+                    <p class="mb-4" style="color: darkblue;">Gunakan Halaman ini <br> Untuk Prediksi Stage Penyakit
+                        Liver anda
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-no-pt ftco-no-pb ftco-services-2 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form id='diagnosaForm' style="margin-top: 50px;" action="{{url_for('predict')}}" method="POST">
+                    <div class="row">
+                        <h2 class="col-md-12 text-center" style="margin-bottom: 30px;">INPUT DATA ANDA </h2>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="drug">Drug:</label>
+                                <select class="form-control" id="Drug" name="Drug" placeholder='pilih drug yang sesuai'
+                                    required="required">
+                                    <option value="1">Iya</option>
+                                    <option value="0">Tidak</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Sex">Age:</label>
+                                <input type="text" class="form-control" id="Age" name="Age"
+                                    placeholder="masukan umur anda" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="Sex">Gender:</label>
+                                <select class="form-control" id="Sex" name="Sex" required>
+                                    <option value="1">Laki-laki</option>
+                                    <option value="0">Perempuan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Ascites">Ascites:</label>
+                                <select class="form-control" id="Ascites" name="Ascites" required>
+                                    <option value="1">Iya</option>
+                                    <option value="0">Tidak</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Hepatomegaly">Hepatomegaly:</label>
+                                <select class="form-control" id="Hepatomegaly" name="Hepatomegaly" required>
+                                    <option value="1">Iya</option>
+                                    <option value="0">Tidak</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Spiders">Spiders:</label>
+                                <select class="form-control" id="Spiders" name="Spiders" required>
+                                    <option value="1">Iya</option>
+                                    <option value="0">Tidak</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Edema">Edema:</label>
+                                <select class="form-control" id="Edema" name="Edema" required>
+                                    <option value="2">Iya dengan Diuretik</option>
+                                    <option value="1">Iya Tanpa Diuretik</option>
+                                    <option value="0">Tidak</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Bilirubin">Bilirubin:</label>
+                                <input type="text" class="form-control" id="Bilirubin" name="Bilirubin"
+                                    placeholder="mg/dl" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Cholesterol">Cholesterol:</label>
+                                <input type="text" class="form-control" id="Cholesterol" name="Cholesterol"
+                                    placeholder="mg/dl" required>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Albumin">Albumin:</label>
+                                <input type="text" class="form-control" id="Albumin" name="Albumin" placeholder="mg/dl"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Copper">Copper:</label>
+                                <input type="text" class="form-control" id="Copper" name="Copper" placeholder="ug/day"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Alk_Phos">Alk_Phos:</label>
+                                <input type="text" class="form-control" id="Alk_Phos" name="Alk_Phos"
+                                    placeholder="U/liter" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="SGOT">SGOT:</label>
+                                <input type="text" class="form-control" id="SGOT" name="SGOT" placeholder="U/ml"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Tryglicerides">Tryglicerides:</label>
+                                <input type="text" class="form-control" id="Tryglicerides" name="Tryglicerides"
+                                    placeholder="mg/dl" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Platelets">Platelets:</label>
+                                <input type="text" class="form-control" id="Platelets" name="Platelets"
+                                    placeholder="ml/1000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Prothrombin">Prothrombin:</label>
+                                <input type="text" class="form-control" id="Prothrombin" name="Prothrombin"
+                                    placeholder="PT(phrotrombin time/s)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Status">Status:</label>
+                                <select class="form-control" id="Status" name="Status" required>
+                                    <option value="2">Death</option>
+                                    <option value="1">CL(Censored due to Liver)</option>
+                                    <option value="0">C(Censored)</option>
+                                </select>
+                            </div>
+                            <!-- Add more input fields for the right column -->
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" >Mulai Diagnosa</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="ftco-section ftco-no-pt ftco-no-pb ftco-services-2 bg-light">
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 heading-section ftco-animate">
+                <h3 class="mb-3" style="margin-top: 50px; text-align: center;">{{stageCondition}}</h3>
+
+            </div>
+            
+            <div id="cardContainer">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 mx-auto">
+                        <div class="card w-80">
+                            <div class="card-header">
+                                Saran Pengobatan
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text" id="solutionText">
+                                    Berdasarkan hasil pemeriksaan, kami merekomendasikan langkah-langkah berikut untuk
+                                    pengobatan: <br>
+                                    <span id="solution">{{solution | safe }}</span>
+                                </p>
+        
+                                <ul>
+                                    <li id="bilirubin">Bilirubin: {{bilAvg}}</li>
+                                    <li id="cholesterol">Cholesterol: {{CholAvg}}</li>
+                                    <li id="albumin">Albumin: {{albAvg}}</li>
+                                    <li id="alk_phos">Alk_Phos: {{alkAvg}}</li>
+                                    <li id="sgot">SGOT: {{SGOTAvg}}</li>
+                                    <li id="tryglicerides">Tryglicerides: {{TryAvg}}</li>
+                                    <li id="platelets">Platelets: {{PlatAvg}}</li>
+                                    <li id="prothrombin">Prothrombin: {{ProthAvg}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+</section>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'public/templates/public_base.html' %}
+
+{% block title %}
+diagnosa
+{% endblock %}
+
+{% block content %}
+    <br><br><br><br><br>
+<section>
+    <div class="ftco-section ftco-no-pt ftco-no-pb ftco-services-2 bg-light">
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 heading-section ftco-animate">
+                <h3 class="mb-3" style="margin-top: 50px; text-align: center;">{{stageCondition}}</h3>
+
+            </div>
+            
+            <div id="cardContainer">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 mx-auto">
+                        <div class="card w-80">
+                            <div class="card-header">
+                                Saran Pengobatan
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text" id="solutionText">
+                                    Berdasarkan hasil pemeriksaan, kami merekomendasikan langkah-langkah berikut untuk
+                                    pengobatan: <br>
+                                    <span id="solution">{{solution | safe }}</span>
+                                </p>
+        
+                                <ul>
+                                    <li id="bilirubin">Bilirubin: {{bilAvg}}</li>
+                                    <li id="cholesterol">Cholesterol: {{CholAvg}}</li>
+                                    <li id="albumin">Albumin: {{albAvg}}</li>
+                                    <li id="alk_phos">Alk_Phos: {{alkAvg}}</li>
+                                    <li id="sgot">SGOT: {{SGOTAvg}}</li>
+                                    <li id="tryglicerides">Tryglicerides: {{TryAvg}}</li>
+                                    <li id="platelets">Platelets: {{PlatAvg}}</li>
+                                    <li id="prothrombin">Prothrombin: {{ProthAvg}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+</section>
+{% endblock %}

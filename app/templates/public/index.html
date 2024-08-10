@@ -1,0 +1,61 @@
+{% extends "public/templates/public_base.html" %}
+
+<!-- title -->
+{% block title %}
+Home Page
+{% endblock %}
+<!-- content -->
+{% block content %}
+<section class="hero-wrap js-fullheight"
+	style="background-image: url('{{ url_for('static', filename='images/bg_3.jpg') }}')" data-section="home"
+	data-stellar-background-ratio="0.5">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+			data-scrollax-parent="true">
+			<div class="col-md-6 pt-5 ftco-animate">
+				<div class="mt-5">
+					<span class="subheading">Welcome to Chrinoplus</span>
+					<h1 class="mb-4">We are here <br>for your Care</h1>
+					<p class="mb-4">Silahkan menggunakan website ini untuk menambah wawasan dan juga cek kesehatan tentang organ hati anda</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+	<div class="container">
+		<div class="row d-flex">
+			<div class="col-md-6 col-lg-5 d-flex">
+				<div class="img d-flex align-self-stretch align-items-center"
+					style="background-image:url('{{ url_for('static', filename='images/about.jpg') }}')">
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-7 pl-lg-5 py-md-5">
+				<div class="py-md-5">
+					<div class="row justify-content-start pb-3">
+						<div class="col-md-12 heading-section ftco-animate p-4 p-lg-5">
+							<h2 class="mb-4">Website ini untuk <span>Mendiagnosa</span> Tahapan Penyakit Hati</h2>
+							<p>Didalam Website ini anda bisa memanfaatkan fitur diagnosa untuk mengecek tahapan dari
+								penyakit hati/liver anda </p>
+							<p><a href="{{ url_for('diagnosa' ) }}" class="btn btn-primary py-3 px-4">Diagnosa</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="ftco-intro img" style="background-image: url('{{ url_for('static', filename='images/bg_2.jpg') }}')">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-9 text-center">
+				<h2>Your Health is Our Priority</h2>
+				<p>Pelajari Lebih Lanjut Tentang Penjelasan Organ Hati</p>
+				<p class="mb-0"><a href="{{ url_for('about' ) }}" class="btn btn-white px-4 py-3">About</a></p>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

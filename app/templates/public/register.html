@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body::before {
+   content: ''; /* Empty content */
+   position: absolute; /* Position it absolutely */
+   top: 0;
+   left: 0;
+   width: 100%; /* Cover the entire body */
+   height: 100%; /* Cover the entire body */
+   background-image: url('{{ url_for("static", filename="images/background.png") }}'); /* Set the background image */
+   background-size: cover;
+   background-position: center;
+   filter: blur(10px); /* Apply blur filter to the background image */
+   z-index: -1; /* Place it behind the actual content */
+}
+       .container {
+           width: 30%;
+           margin-top: 5%;
+           background-color: #f8f9fa;
+           padding: 20px;
+           border-radius: 10px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           justify-content: center;
+           align-items: center;
+       }
+       h2 {
+           text-align: center;
+           margin-bottom: 20px;
+       }
+   </style>
+</head>
+<body>
+    <div class="container">
+        <h2>SIGN UP</h2>
+        {% if success_message %}
+        <div class="alert alert-success" role="alert">
+            {{ success_message }}
+        </div>
+        {% endif %}
+        <form method="POST" action="{{ url_for('register') }}">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+        <div class="text-center mt-3">
+            <a href="{{ url_for('login') }}" class="btn btn-secondary">Login</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+{% extends 'public/templates/public_base.html' %}
+
+<style>
+    .btn_n {
+        display: flex;
+        /* Enable flexbox layout */
+        justify-content: space-between;
+        /* Distribute buttons evenly */
+    }
+
+    /* Style for individual buttons */
+    .btn-danger,
+    .btn-primary {
+        margin: 0;
+        /* Remove default button margins */
+    }
+</style>
+{% block title %}
+Riwayat
+{% endblock %}
+
+{% block content %}
+<section class="hero-wrap js-fullheight"
+    style="background-image: url('{{ url_for('static', filename='images/liver1.jpeg') }}'); opacity: 0.7;"
+    data-section="home" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+            data-scrollax-parent="true">
+            <div class="col-md-6 pt-5 ftco-animate">
+                <div class="mt-5">
+                    <h1 class="mb-4">RIWAYAT DIAGNOSA</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-no-pt ftco-no-pb ftco-services-2 bg-light">
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>ID Riwayat</th>
+                    <th>ID Diagnosa</th>
+                    <th>Stage</th>
+                    <th>Aksi</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for riwayat_diagnosa in data_riwayat %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{ riwayat_diagnosa.0 }}</td>
+                    <td>{{ riwayat_diagnosa.1 }}</td>
+                    <td>{{riwayat_diagnosa.2}}</td>
+                    <td class="btn_n">
+                        <div class="btn-group">
+                            <form id="deleteForm_{{ riwayat_diagnosa.0 }}" method="POST"
+                                action="{{ url_for('delete_riwayat', id_riwayat=riwayat_diagnosa.0) }}">
+                                <button type="button" class="btn btn-danger btn-sm"
+                                    onclick="confirmDelete('{{ riwayat_diagnosa.0 }}')">Delete</button>
+                            </form>
+                            <form method="GET" action="{{ url_for('print_diagnosa', id_riwayat=riwayat_diagnosa.0) }}">
+                                <input type="hidden" name="id_riwayat" value="{{ riwayat_diagnosa.0 }}">
+                                <button type="submit" class="btn btn-primary btn-sm">Print</button>
+                            </form>
+                        </div>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if total_pages > 1 %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page > 1 %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page - 1 }}">Sebelumnya</a>
+                </li>
+                {% endif %}
+
+                {% for i in range(1, total_pages + 1) %}
+                {% if i == page %}
+                <li class="page-item active">
+                    <a class="page-link" href="#">{{ i }}</a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+                {% if page < total_pages %} <li class="page-item">
+                    <a class="page-link" href="?page={{ page + 1 }}">Selanjutnya</a>
+                    </li>
+                    {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</section>
+
+<script>
+    function confirmDelete(id_riwayat) {
+        if (confirm("Apakah Anda yakin ingin menghapus riwayat ini?")) {
+            document.getElementById('deleteForm_' + id_riwayat).submit();
+        }
+    }
+</script>
+{% endblock %}

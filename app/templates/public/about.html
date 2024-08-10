@@ -1,0 +1,172 @@
+{% extends 'public/templates/public_base.html' %}
+
+{% block title %}
+About page
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-wrap js-fullheight"
+    style="background-image: url('{{ url_for('static', filename='images/liver1.jpeg') }}'); opacity: 0.7;" data-section="home"
+    data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+            data-scrollax-parent="true">
+            <div class="col-md-6 pt-5 ftco-animate">
+                <div class="mt-5">
+                    <h1 class="mb-4">Mari Belajar <br>Organ Hati</h1>
+                    <p class="mb-4" style="color: darkblue;">Di halaman ini kita akan belajar tentang <br> organ hati
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-no-pt ftco-no-pb ftco-services-2 bg-light">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="about-services">
+                <div class="py-lg-5">
+                    <div class="row justify-content-center pb-5">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <h2 class="mb-3">Fungsi Hati</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                            <div class="media block-6 services d-flex">
+                                <div class="icon justify-content-center align-items-center d-flex">
+                                    <img src="{{ url_for('static', filename='images/about/metabolism.png') }}" alt="">
+                                </div>
+                                <div class="media-body pl-md-4">
+                                    <h3 class="heading mb-3">Metabolisme Tubuh</h3>
+                                    <p>Hati adalah pusat metabolisme dalam tubuh manusia. Ini berarti hati bertanggung jawab untuk memecah karbohidrat, lemak, dan protein yang kita konsumsi dalam makanan menjadi bentuk yang dapat digunakan oleh tubuh. Misalnya, hati memecah glukosa dari karbohidrat menjadi energi yang digunakan oleh sel-sel tubuh. Selain itu, hati juga mengubah asam lemak menjadi energi dan menyimpan protein untuk digunakan saat diperlukan.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                            <div class="media block-6 services d-flex">
+                                <div class="icon justify-content-center align-items-center d-flex">
+                                    <img src="{{ url_for('static', filename='images/about/detox.png') }}" alt="">
+                                </div>
+                                <div class="media-body pl-md-4">
+                                    <h3 class="heading mb-3">Detoksifikasi</h3>
+                                    <p>Hati adalah organ penting dalam proses detoksifikasi tubuh. Ini berarti hati membersihkan darah dari berbagai racun dan zat berbahaya yang masuk ke dalam tubuh melalui makanan, minuman, atau lingkungan. Contohnya, hati memecah alkohol menjadi zat yang lebih mudah dikeluarkan dari tubuh dan mengubah obat-obatan menjadi bentuk yang aman untuk diekskresikan.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                            <div class="media block-6 services d-flex">
+                                <div class="icon justify-content-center align-items-center d-flex">
+                                    <img src="{{ url_for('static', filename='images/about/nutrition.png') }}" alt="">
+                                </div>
+                                <div class="media-body pl-md-4">
+                                    <h3 class="heading mb-3">Menyimpan Nutrisi</h3>
+                                    <p>Hati juga berperan dalam menyimpan nutrisi penting untuk digunakan oleh tubuh saat diperlukan. Ini termasuk penyimpanan vitamin dan mineral seperti vitamin A, D, E, K, dan besi. Selain itu, hati juga menyimpan glukosa dalam bentuk glikogen. Glikogen adalah bentuk cadangan glukosa yang dapat dipecah menjadi glukosa saat tubuh membutuhkan energi tambahan, misalnya saat berolahraga atau saat kadar gula darah turun secara tiba-tiba.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                            <div class="media block-6 services d-flex">
+                                <div class="icon justify-content-center align-items-center d-flex">
+                                    <img src="{{ url_for('static', filename='images/about/bile.png') }}" alt="">
+                                </div>
+                                <div class="media-body pl-md-4">
+                                    <h3 class="heading mb-3">Membantu Pembuangan Limbah</h3>
+                                    <p> Salah satu fungsi utama hati adalah menghasilkan empedu, cairan yang membantu dalam pencernaan makanan dan pembuangan zat-zat limbah dari tubuh. Empedu diproduksi oleh hati dan disimpan di kantong empedu sebelum dilepaskan ke usus kecil saat dibutuhkan. Empedu membantu dalam proses pencernaan lemak dan membantu tubuh untuk membuang produk limbah yang tidak diperlukan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="ftco-section ftco-no-pt ftco-no-pb ftco-services-2 bg-light">
+        <img src="{{ url_for('static', filename='images/about/liver-stage.jpg') }}" alt="stageliver" class="img-fluid">
+    </div>
+</section>
+
+<section>
+    <div class="ftco-section ftco-no-pt ftco-no-pb ftco-services-2 bg-light">
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 heading-section ftco-animate">
+                <h2 class="mb-3">Cara Menjaga Hati Agar Tetap Sehat</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li class="d-flex mb-4">
+                            <span class="mr-3"><i class="fas fa-check"></i></span>
+                            <p><strong>Makan makanan sehat dan seimbang.</strong> Konsumsi makanan yang kaya akan serat, rendah lemak jenuh, serta tinggi nutrisi seperti buah-buahan, sayuran, biji-bijian utuh, dan protein.</p>
+                        </li>
+                        <li class="d-flex mb-4">
+                            <span class="mr-3"><i class="fas fa-check"></i></span>
+                            <p><strong>Minum cukup air putih setiap hari.</strong> Air membantu tubuh untuk menjaga fungsi hati yang optimal dengan membantu dalam proses detoksifikasi dan pencernaan.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li class="d-flex mb-4">
+                            <span class="mr-3"><i class="fas fa-check"></i></span>
+                            <p><strong>Menjaga berat badan yang sehat.</strong> Berat badan yang sehat dapat membantu mengurangi risiko terkena penyakit hati seperti penyakit hati berlemak non-alkohol dan sirosis hati.</p>
+                        </li>
+                        <li class="d-flex mb-4">
+                            <span class="mr-3"><i class="fas fa-check"></i></span>
+                            <p><strong>Teratur berolahraga.</strong> Berolahraga secara teratur dapat membantu menjaga berat badan yang sehat, meningkatkan sirkulasi darah, dan mengurangi risiko penyakit hati.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="ftco-section ftco-no-pt ftco-no-pb bg-light">
+        <div class="container">
+            <div class="row justify-content-center pb-5">
+                <div class="col-md-12 heading-section ftco-animate">
+                    <h2 class="mb-3">Referensi tentang Organ Hati</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card ftco-animate">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="https://www.halodoc.com/kesehatan/fungsi-hati" class="btn btn-link" target="_blank">Pengertian Organ Hati</a></h5>
+                            <p class="card-text">Organ hati atau liver adalah organ terbesar di dalam tubuh manusia dan memiliki peran penting dalam proses metabolisme dan detoksifikasi.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card ftco-animate">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="https://gastrohealth.com.sg/condition/liver-fibrosis-cirrhosis/" class="btn btn-link" target="_blank">Tahapan Penyakit Hati</a></h5>
+                            <p class="card-text">Penyakit hati dapat melalui beberapa tahapan, mulai dari hati sehat hingga sirosis hati. Mengetahui tahapan penyakit hati penting untuk diagnosis dan pengelolaan penyakit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card ftco-animate">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="https://www.siloamhospitals.com/informasi-siloam/artikel/cara-menjaga-kesehatan-hati" class="btn btn-link" target="_blank">Solusi Penyakit Hati</a></h5>
+                            <p class="card-text">Berbagai solusi untuk mengatasi penyakit hati termasuk perubahan gaya hidup, pengobatan medis, dan tindakan pencegahan. Konsultasikan dengan dokter untuk mendapatkan perawatan yang tepat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
